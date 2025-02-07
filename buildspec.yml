@@ -11,7 +11,6 @@ phases:
     commands:
       - echo "Logging in to Amazon ECR..."
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
-      - echo "Setting IMAGE_URI..."
       - IMAGE_URI="904233129662.dkr.ecr.ap-south-1.amazonaws.com/repo_ecs"
       - echo "Checking Docker version..."
       - docker --version
