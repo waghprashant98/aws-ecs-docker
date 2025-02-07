@@ -4,7 +4,7 @@ phases:
   pre_build:
     commands:
       - echo Logging in to ECR...
-      - CODEBUILD_RESOLVED_SOURCE_VERSION="$(CODEBUILD_RESOLVED_SOURCE_VERSION:$IMAGE_TAG)"
+      - CODEBUILD_RESOLVED_SOURCE_VERSION="$(CODEBUILD_RESOLVED_SOURCE_VERSION:-$IMAGE_TAG)"
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - echo image_tag $IMAGE_TAG
       - REPO="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com"
