@@ -5,7 +5,6 @@ env:
     AWS_REGION: "ap-south-1"
     AWS_ACCOUNT_ID: "904233129662"
     ECR_REPO_NAME: "repo_ecs"
-    IMAGE_TAG: "latest" 
 
 phases:
   pre_build:
@@ -13,7 +12,7 @@ phases:
       - echo "Logging in to Amazon ECR..."
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
       - echo "Setting IMAGE_URI..."
-      - IMAGE_URI="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO_NAME:$IMAGE_TAG"
+      - IMAGE_URI="904233129662.dkr.ecr.ap-south-1.amazonaws.com/repo_ecs"
       - echo "IMAGE_URI: $IMAGE_URI"
       - echo "Checking Docker version..."
       - docker --version
