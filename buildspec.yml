@@ -8,7 +8,7 @@ phases:
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - echo image_tag $IMAGE_TAG
       - REPO="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com"
-      - IMAGE_URI= 904233129662.dkr.ecr.ap-south-1.amazonaws.com/repo_ecs
+      - IMAGE_URI= "904233129662.dkr.ecr.ap-south-1.amazonaws.com/repo_ecs"
       - echo Repository $REPO
       - docker login -u AWS -p $(aws ecr get-login-password --region $AWS_DEFAULT_REGION) $REPO
 
